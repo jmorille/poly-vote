@@ -1,7 +1,46 @@
-<dom-module>
+<link rel="import" href="bower_components/polymer/polymer.html">
 
-<script>
-	
-</script>
-    
+<link rel="import" href="bower_components/polymerfire/firebase-app.html">
+
+
+<link rel="import" href="my-login.html">
+<link rel="import" href="my-notes.html">
+
+<!--
+`my-app`
+Polymer Element my-app
+
+@demo demo/index.html 
+-->
+
+<dom-module id="my-app">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <firebase-app auth-domain="poly-vote-8bef8.firebaseapp.com"
+                      database-url="https://poly-vote-8bef8.firebaseio.com/"
+                      api-key="AIzaSyC9CSNsV5Y_3sFuTOmxcDEcKlsNRsIL2E0">
+        </firebase-app>
+
+        <my-login user="{{user}}"></my-login>
+        <my-notes hidden$="[[!user]]"></my-notes>
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'my-app',
+
+            properties: {
+                prop1: {
+                    type: String,
+                    value: 'my-app',
+                },
+            },
+
+        });
+    </script>
 </dom-module>
