@@ -1,0 +1,8 @@
+
+
+# IDEA
+.idea
+*.iml
+
+# Bower
+/public/bower_components

@@ -1,0 +1,23 @@
+{
+  "name": "poly-vote",
+  "homepage": "https://github.com/jmorille/poly-vote",
+  "authors": [
+    "jmorille <jmorille@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.7.1",
+    "polymerfire": "firebase/polymerfire#^0.10.3",
+    "paper-button": "PolymerElements/paper-button#^1.0.14"
+  }
+}
