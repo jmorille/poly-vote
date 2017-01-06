@@ -1,0 +1,78 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<link rel="import" href="bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="bower_components/polymerfire/firebase-messaging.html">
+
+<link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+
+<!--
+`my-subscription`
+Polymer Element my-subscription
+
+@demo demo/index.html 
+-->
+
+<dom-module id="my-subscription">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <firebase-auth user="{{user}}"></firebase-auth>
+
+        <firebase-messaging
+                id="messaging"
+                token="{{token}}"
+                on-message="handleMessage">
+        </firebase-messaging>
+
+        <firebase-document
+                path="/users/[[user.uid]]/token"
+                data="{{token}}">
+        </firebase-document>
+
+
+        <paper-toggle-button id="subscription"
+                             on-tap="toggleSubcription"
+                             checked="[[token]]">
+            Subscribe to notifications
+        </paper-toggle-button>
+
+        <p>Token:</p>
+        <p>[[token]]</p>
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'my-subscription',
+
+            properties: {
+                user: {
+                    type: Object
+                },
+                token: {
+                    type: String
+                },
+            },
+
+            toggleSubcription: function () {
+                this.$.messaging.requestPermission().then(function () {
+                    // permission was granted
+                }, function (err) {
+                    // permission was denied
+                });
+            },
+
+            handleMessage: function (e) {
+                console.log('message received', arguments);
+            },
+
+
+        });
+    </script>
+</dom-module>

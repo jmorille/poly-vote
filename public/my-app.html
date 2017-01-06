@@ -5,6 +5,8 @@
 
 <link rel="import" href="my-login.html">
 <link rel="import" href="my-notes.html">
+<link rel="import" href="my-subscription.html">
+<link rel="import" href="my-majority-vote.html">
 
 <!--
 `my-app`
@@ -20,13 +22,21 @@ Polymer Element my-app
                 display: block;
             }
         </style>
-        <firebase-app auth-domain="poly-vote-8bef8.firebaseapp.com"
+        <firebase-app id="firebase"
+                      auth-domain="poly-vote-8bef8.firebaseapp.com"
                       database-url="https://poly-vote-8bef8.firebaseio.com/"
-                      api-key="AIzaSyC9CSNsV5Y_3sFuTOmxcDEcKlsNRsIL2E0">
+                      api-key="AIzaSyC9CSNsV5Y_3sFuTOmxcDEcKlsNRsIL2E0"
+                      messaging-sender-id="939613300303">
         </firebase-app>
 
-        <my-login user="{{user}}"></my-login>
-        <my-notes hidden$="[[!user]]"></my-notes>
+        <header>
+            <my-login user="{{user}}"></my-login>
+        </header>
+        <main>
+            <my-notes hidden$="[[!user]]"></my-notes>
+            <my-subscription></my-subscription>
+            <my-majority-vote></my-majority-vote>
+        </main>
     </template>
 
     <script>

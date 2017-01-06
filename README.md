@@ -1,10 +1,14 @@
 # poly-vote
 
 
-## Sublime Text
-https://marketplace.visualstudio.com/items?itemName=chimon2000.polymer-snippets
+## Jugement Majoritaire
+doc https://sciencetonnante.wordpress.com/2016/10/21/reformons-lelection-presidentielle/
 
-'''
-CRTL+P
-ext install polymer-snippets
-'''
+7 votes
+* Excellent : 25%
+* Très Bien : 14%
+* Bien : 0%
+* Assez Bien : 15%
+* Passable : 18%
+* Insuffisant : 15%
+* A rejeter : 13%
